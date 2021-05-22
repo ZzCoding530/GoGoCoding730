@@ -4,7 +4,7 @@ func detectCycle(head *ListNode) *ListNode {
 	var slow *ListNode = head
 	var fast *ListNode = head
 
-	for fast.Next != nil && fast.Next.Next != nil {
+	for fast != nil && fast.Next != nil {
 		slow = slow.Next
 		fast = fast.Next.Next
 
