@@ -1,4 +1,9 @@
 # GoGoCoding730
-Golang刷leetcode
+使用Go开启新一轮的刷题咯！
 
-测试一下Goland的Git
+一是复习做过的题，二是让Go的语法更熟悉　
+
+ **🥳为了730li！**
+
+---
+
