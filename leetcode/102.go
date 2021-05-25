@@ -5,31 +5,32 @@ import "../structures"
 type TreeNode = structures.TreeNode
 
 func levelOrder(root *TreeNode) [][]int {
-	var result [][]int
+	var result [][]int // 结果数组，二维的
 
 	if root == nil {
 		return result
 	}
 
-	level := []*TreeNode{root}
+	curLevel := []*TreeNode{root} // 存放当前层的节点
 
-	for i := 0; len(level) > 0; i++ {
-		result = append(result, []int{})
-		var temp []*TreeNode
+	for len(curLevel) > 0 { // 直到当前层没有节点
+		nextLevel := []*TreeNode{} // 存放下一层的节点
+		curLevelVals := []int{}    // 存放当前层的节点值
 
-		for j := 0; j < len(level); j++ {
-			node := level[j]
-			result[i] = append(result[i], node.Val)
+		for _, node := range curLevel {
+			curLevelVals = append(curLevelVals, node.Val)
 			if node.Left != nil {
-				temp = append(temp, node.Left)
+				nextLevel = append(nextLevel, node.Left)
 			}
 			if node.Right != nil {
-				temp = append(temp, node.Right)
+				nextLevel = append(nextLevel, node.Right)
 			}
 		}
-		level = temp
+
+		result = append(result, curLevelVals)
+
+		curLevel = nextLevel
 	}
 
 	return result
-
 }
