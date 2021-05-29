@@ -1,5 +1,8 @@
 package leetcode
 
+/*
+	迭代法 就相当于层序遍历那种 一行一行翻，从上到下从左到右一个一个做root翻
+*/
 func invertTree(root *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
