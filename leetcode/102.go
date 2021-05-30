@@ -14,11 +14,12 @@ func levelOrder(root *TreeNode) [][]int {
 	curLevel := []*TreeNode{root} // 存放当前层的节点
 
 	for len(curLevel) > 0 { // 直到当前层没有节点
-		nextLevel := []*TreeNode{} // 存放下一层的节点
-		curLevelVals := []int{}    // 存放当前层的节点值
+		var nextLevel []*TreeNode // 存放下一层的节点
+		var curLevelVal []int     // 存放当前层的节点值
 
 		for _, node := range curLevel {
-			curLevelVals = append(curLevelVals, node.Val)
+			curLevelVal = append(curLevelVal, node.Val)
+
 			if node.Left != nil {
 				nextLevel = append(nextLevel, node.Left)
 			}
@@ -27,9 +28,9 @@ func levelOrder(root *TreeNode) [][]int {
 			}
 		}
 
-		result = append(result, curLevelVals)
+		result = append(result, curLevelVal) //更新结果
 
-		curLevel = nextLevel
+		curLevel = nextLevel //当前层存的值更新给curLevel
 	}
 
 	return result
