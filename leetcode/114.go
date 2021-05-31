@@ -9,6 +9,8 @@ func flatten(root *TreeNode) {
 	}
 	flatten(root.Left)
 	flatten(root.Right)
+
+	//此时左右子树已经被分别拉成一条线了
 	r := root.Right
 	root.Right, root.Left = root.Left, nil
 	for root.Right != nil {
