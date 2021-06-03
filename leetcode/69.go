@@ -18,7 +18,7 @@ func mySqrt(x int) int {
 	if x < 2 {
 		return x
 	}
-	l, r := 0, x //两个边界  0至正无穷
+	l, r := 0, x //两个边界  0至x
 	for l < r {
 		mid := (l + r) / 2
 		if mid*mid > x {
