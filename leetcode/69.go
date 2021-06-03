@@ -13,9 +13,12 @@ func mySqrt(x int) int {
 }
 
 //不用二分还是慢
-
+//这样击败100%
 func mySqrt(x int) int {
-	l, r := 0, math.MaxInt32 //两个边界  0至正无穷
+	if x < 2 {
+		return x
+	}
+	l, r := 0, x //两个边界  0至正无穷
 	for l < r {
 		mid := (l + r) / 2
 		if mid*mid > x {
