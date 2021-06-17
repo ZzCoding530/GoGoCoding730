@@ -1,13 +1,13 @@
 package leetcode
 
 func combinationSum(candidates []int, target int) (ans [][]int) {
-	comb := []int{}
+	comb := []int{} //目前的组合
 	var dfs func(target, idx int)
 	dfs = func(target, idx int) {
 		if idx == len(candidates) {
 			return
 		}
-		if target == 0 {
+		if target == 0 { //树遍历到底了
 			ans = append(ans, append([]int(nil), comb...))
 			return
 		}
@@ -21,5 +21,5 @@ func combinationSum(candidates []int, target int) (ans [][]int) {
 		}
 	}
 	dfs(target, 0)
-	return
+	return ans
 }
