@@ -1,5 +1,8 @@
 package leetcode
 
+/**
+就是把二叉树逆中序遍历的结果放到数组里，然后数组返回第K个
+*/
 func kthLargest(root *TreeNode, k int) int {
 	var nums []int
 	nums = getNums(&nums, root)
