@@ -133,6 +133,8 @@
 |   240   |               搜索二维矩阵II               |   Medium   | 类似二分法                                                   |    🌟    |
 |   322   |                  零钱兑换                  |   Medium   | dpdpdpdp                                                     |    🌟    |
 |   518   |                 零钱兑换II                 |   Medium   | dpdpdpdppdpdp                                                |    🌟    |
+|   224   |                 基本计算器                 |    Hard    |                                                              |         |
+|   59    |                 螺旋矩阵II                 |   Medium   | 细心点不是很难                                               |   🌟🌟🌟   |
 
 
 
