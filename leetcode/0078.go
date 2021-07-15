@@ -5,7 +5,10 @@ func subsets(nums []int) (ans [][]int) {
 	var dfs func(int)
 	dfs = func(cur int) {
 		if cur == len(nums) { //全都遍历了 返回吧
-			ans = append(ans, append([]int(nil), set...)) //append([]int(nil), set...)这个写法相当于是新建一个空切片然后把set当前的值复制进去，避免下一轮回溯set变了
+			temp := []int{}
+			temp = append(temp, set...)
+			ans = append(ans, temp)
+			//ans = append(ans, append([]int(nil), set...))  这句可以代替上面三句
 			return
 		}
 
