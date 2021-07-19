@@ -18,9 +18,9 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 		return root
 	}
 
-	//lowestCommonAncestor 这个函数的意义是，给你root 和 p , q 两个节点，返回其最近公共祖先节点
-	left := lowestCommonAncestor(root.Left, p, q)   //左子树扔进去，返回一个值	要么返回nil，说明【左边】没找到，要么返回找到的值
-	right := lowestCommonAncestor(root.Right, p, q) //右子树扔进去，返回一个值	要么返回nil，说明【右边】没找到，要么返回找到的值
+	//lowestCommonAncestor 这个函数的意义是，给你root 和 p , q 两个节点，返回其最近公共祖先节点，要么找到了，要么在root左边子树里，要么在root右边子树里
+	left := lowestCommonAncestor(root.Left, p, q)   //左子树扔进去，返回一个值	要么返回nil，说明【左边子树里】没找到，要么返回找到的值
+	right := lowestCommonAncestor(root.Right, p, q) //右子树扔进去，返回一个值	要么返回nil，说明【右边子树里】没找到，要么返回找到的值
 
 	if left != nil && right != nil { //左右都不是nil，说明root就是要找的
 		return root
