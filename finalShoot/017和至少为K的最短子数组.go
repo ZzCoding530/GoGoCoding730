@@ -7,9 +7,7 @@ func shortestSubarray(nums []int, k int) int {
 	for i := 1; i <= n; i++ { //填充前缀和数组
 		sum = append(sum, sum[i-1]+nums[i-1])
 	}
-
 	queue := []int{}
-
 	min := n + 1
 
 	for i := 0; i < n; i++ {
@@ -23,17 +21,12 @@ func shortestSubarray(nums []int, k int) int {
 		for len(queue) != 0 && sum[i]-sum[queue[len(queue)-1]] >= k {
 			min = minInt(min, i-queue[len(queue)-1])
 			queue = queue[1:]
-
 		}
-
 		queue = append(queue, i)
-
 	}
-
 	if min == n+1 {
 		return -1
 	}
-
 	return min
 }
 
