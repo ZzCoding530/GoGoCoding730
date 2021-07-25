@@ -6,14 +6,45 @@ type ListNode struct {
 }
 
 /*
-	自建堆实现吧
+	分治
 */
 func mergeKLists(lists []*ListNode) *ListNode {
+	n := len(lists)
 
+	if n == 0 {
+		return nil
+	}
+
+	if n == 1 {
+		return lists[0]
+	}
+
+	return merge2list(mergeKLists(lists[:n/2]), mergeKLists(lists[n/2:]))
 }
 
-type minHeap []*ListNode //别名
+func merge2list(list1, list2 *ListNode) *ListNode {
+	dummyHead := &ListNode{}
+	head := dummyHead
 
-func (h minHeap) len() int           { return len(h) }           //长度就是数组长度
-func (h minHeap) less(a, b int) bool { return a < b }            //比大小
-func (h minHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] } //交换
+	for list1 != nil && list2 != nil {
+		if list1.Val < list2.Val {
+			head.Next = list1
+			list1 = list1.Next
+		} else {
+			head.Next = list2
+			list2 = list2.Next
+		}
+
+		head = head.Next
+	}
+
+	if list1 != nil {
+		head.Next = list1
+	}
+
+	if list2 != nil {
+		head.Next = list2
+	}
+
+	return dummyHead.Next
+}
