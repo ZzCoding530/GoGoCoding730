@@ -124,9 +124,9 @@ func (this *LRUCache) removeNode(node *DoubleListNode) { //删除双向链表某
 	node.next.prev = node.prev
 }
 
-func (this *LRUCache) moveToHead(node *DoubleListNode) { //把某个节点移动至首尾
+func (this *LRUCache) moveToHead(node *DoubleListNode) { //把某个节点移动至首位
 	this.removeNode(node) //实际上是先删除
-	this.addToHead(node)  //再添加到首尾
+	this.addToHead(node)  //再添加到首位
 }
 
 func (this *LRUCache) removeTail() *DoubleListNode { //移除最后尾节点
