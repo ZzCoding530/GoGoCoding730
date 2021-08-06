@@ -1,5 +1,8 @@
 package finalShoot
 
+/*
+	两个两个比
+*/
 func longestCommonPrefix(strs []string) string {
 	if len(strs) == 0 {
 		return ""
